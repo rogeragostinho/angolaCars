@@ -1,4 +1,7 @@
 #!/bin/bash
+
+bash apresentacao
+
 while true; do
     echo "===== MENU ANGOLACARS ====="
     echo "1 - Registar Cliente"
