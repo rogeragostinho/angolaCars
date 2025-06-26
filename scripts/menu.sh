@@ -20,9 +20,9 @@ while true; do
   #echo "5 - Sincronizar com outra Filial"
 
     case "$opcao" in
-        1) bash admin/index.sh ;;
-        2) bash recepcao/index.sh ;;
-        3) bash vendas/index.sh ;;
+        1) bash scripts/admin/index.sh ;;
+        2) bash scripts/recepcao/index.sh ;;
+        3) bash scripts/vendas/index.sh ;;
         0) echo "Saindo..."; exit ;;
         *) echo "Opção inválida." ;;
     esac
