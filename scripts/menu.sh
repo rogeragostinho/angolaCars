@@ -5,23 +5,25 @@ bash apresentacao.sh
 clear
 
 while true; do
-    echo "===== MENU ANGOLACARS ====="
-    echo "1 - Registar Cliente"
-    echo "2 - Registar Venda"
-    echo "3 - Fazer Backup"
-    echo "4 - Limpar Clientes Antigos"
-    echo "5 - Sincronizar com outra Filial"
-    echo "6 - Sair"
-    read -p "Escolha: " op
+  echo ""
+  echo "===== MENU ANGOLACARS ====="
+  echo "1. Administrador"
+  echo "2. Atendimento"
+  echo "0. Sair"
+  echo "==========================="
+  read -p "Escolha uma opção: " opcao
 
-    case "$op" in
-        #1) bash /angolacars/scripts/registar_cliente.sh ;;
-        1) bash registar_cliente.sh ;;
-        2) bash venda.sh ;;
-        3) bash /angolacars/scripts/backup.sh ;;
-        4) bash /angolacars/scripts/limpeza.sh ;;
-        5) bash /angolacars/scripts/sincronizar_filiais.sh ;;
-        6) echo "Saindo..."; exit ;;
+  #echo "1 - Registar Cliente"
+  #echo "2 - Registar Venda"
+  #echo "3 - Fazer Backup"
+  #echo "4 - Limpar Clientes Antigos"
+  #echo "5 - Sincronizar com outra Filial"
+
+    case "$opcao" in
+        1) bash admin/index.sh ;;
+        2) bash recepcao/index.sh ;;
+        3) bash vendas/index.sh ;;
+        0) echo "Saindo..."; exit ;;
         *) echo "Opção inválida." ;;
     esac
 done
