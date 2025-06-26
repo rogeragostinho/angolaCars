@@ -1,6 +1,8 @@
 #!/bin/bash
 
-bash apresentacao
+bash apresentacao.sh
+
+clear
 
 while true; do
     echo "===== MENU ANGOLACARS ====="
