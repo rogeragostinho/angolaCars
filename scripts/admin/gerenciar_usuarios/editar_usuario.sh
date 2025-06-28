@@ -24,9 +24,9 @@ case "$op" in
     echo "3) vendas"
     read -p "Escolha: " tipo
     case "$tipo" in
-      1) grupo="admin" ;;
-      2) grupo="recepcao" ;;
-      3) grupo="vendas" ;;
+      1) grupo="angolacars_admin" ;;
+      2) grupo="angolacars_recepcao" ;;
+      3) grupo="angolacars_vendas" ;;
       *) echo "❌ Grupo inválido."; exit 1 ;;
     esac
     sudo usermod -G "$grupo" "$usuario"

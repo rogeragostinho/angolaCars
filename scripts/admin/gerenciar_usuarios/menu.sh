@@ -12,14 +12,14 @@ echo "2) Listar usuários"
 echo "3) Editar usuário"
 echo "4) Eliminar usuário"
 echo "0) Voltar"
-read -p "Escolha o grupo (1-3): " opcao
+read -p "Escolha uma opcão: " opcao
 
 while true; do
   case "$opcao" in
-    1) criar_usuario ;;
-    2) listar_usuarios ;;
-    3) editar_usuario ;;
-    4) eliminar_usuario
+    1) $BASE_DIR/criar_usuario.sh ;;
+    2) $BASE_DIR/listar_usuarios.sh ;;
+    3) $BASE_DIR/editar_usuario.sh ;;
+    4) $BASE_DIR/eliminar_usuario.sh ;;
     0) exit ;;
     *) echo "Opção inválida." ;;
   esac
