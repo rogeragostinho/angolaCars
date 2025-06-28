@@ -10,9 +10,9 @@ IS_ADMIN=$(groups $USER | grep -q '\badmin\b' && echo "1" || echo "0")
 IS_RECEPCAO=$(groups $USER | grep -q '\brecepcao\b' && echo "1" || echo "0")
 IS_VENDAS=$(groups $USER | grep -q '\bvendas\b' && echo "1" || echo "0")
 
-clear
-
 while true; do
+  clear
+
   echo ""
   echo "===== MENU ANGOLACARS ====="
   echo "1) Acessar menu ADMIN"
