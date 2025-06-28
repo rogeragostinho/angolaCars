@@ -1,5 +1,6 @@
 #!/bin/bash
 
-sudo getent group admin     || sudo groupadd admin
-sudo getent group recepcao  || sudo groupadd recepcao
-sudo getent group vendas    || sudo groupadd vendas
+sudo getent group angolacars           || sudo groupadd angolacars
+sudo getent group angolacars_admin     || sudo groupadd angolacars_admin
+sudo getent group angolacars_recepcao  || sudo angolacars_recepcao recepcao
+sudo getent group angolacars_vendas    || sudo angolacars_vendas vendas
