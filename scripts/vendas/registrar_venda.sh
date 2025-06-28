@@ -1,6 +1,10 @@
 #!/bin/bash
-HIST="../vendas/historico.csv"
-LOG="../vendas/logs/vendas.log"
+
+#define o diretorio do prórpio script
+BASE_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+
+HIST="/var/opt/angolacars/vendas/historico.csv"
+LOG="/var/opt/angolacars/vendas/logs/vendas.log"
 
 read -p "Cliente: " cliente
 read -p "Carro: " carro

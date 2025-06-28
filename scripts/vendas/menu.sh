@@ -14,7 +14,7 @@ while true; do
     read -p "Escolha: " opcao
 
     case "$opcao" in
-        1) bash registar_venda_automovel.sh ;;
+        1) bash $BASE_DIR/registar_venda.sh ;;
         2) bash gerar_relatorio_venda.sh ;;
         3) bash ver_carros_vendidos.sh ;;
         0) exit ;;

@@ -12,4 +12,4 @@ echo "vendedor1:senha123" | sudo chpasswd
 meu_user=$(whoami)
 
 # Adicionar ao grupo admin
-sudo usermod -aG angolacars,angolacars_admin "$meu_user"
+sudo usermod -aG angolacars,angolacars_admin,angolacars_recepcao,angolacars_vendas "$meu_user"
