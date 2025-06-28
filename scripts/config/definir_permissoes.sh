@@ -14,3 +14,6 @@ sudo chmod -R 770 $BASE_DIR/../vendas
 
 sudo sudo chown -R :angolacars $BASE_DIR/../compartilhado
 sudo chmod -R 770 $BASE_DIR/../compartilhado
+
+sudo sudo chown -R :angolacars /var/opt/angolacars
+sudo chmod -R 770 /var/opt/angolacars
