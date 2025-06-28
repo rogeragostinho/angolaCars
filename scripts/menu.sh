@@ -18,7 +18,7 @@ while true; do
   echo "1) Acessar menu ADMIN"
   echo "2) Acessar menu RECEPÇÃO"
   echo "3) Acessar menu VENDAS"
-  echo "4) Sair"
+  echo "0) Sair"
   echo "==========================="
   read -p "Escolha uma opção: " opcao
 
@@ -26,7 +26,7 @@ while true; do
         1) bash $BASE_DIR/admin/index.sh ;;
         2) bash $BASE_DIR/recepcao/index.sh ;;
         3) bash $BASE_DIR/vendas/index.sh ;;
-        0) echo "Saindo..."; exit ;;
+        0) exit ;;
         *) echo "Opção inválida." ;;
     esac
 done
