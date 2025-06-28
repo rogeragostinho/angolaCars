@@ -3,9 +3,9 @@
 #define o diretorio do prórpio script
 BASE_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
-clear
-
 while true; do
+    clear
+    echo ""
     echo "==== MENU VENDAS ===="
     echo "1) Registar venda de carro"
     echo "2) Gerar relatório de venda"
