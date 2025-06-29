@@ -27,7 +27,11 @@ while true; do
         2) bash $BASE_DIR/recepcao/index.sh ;;
         3) bash $BASE_DIR/vendas/index.sh ;;
         0) exit ;;
-        *) echo "Opção inválida." ;;
+        *) 
+          echo "Opção inválida." 
+          read -n 1 -s -r -p "Pressione qualquer tecla para continuar..."
+          echo
+          ;;
     esac
 done
 
