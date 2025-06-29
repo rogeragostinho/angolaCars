@@ -21,5 +21,6 @@ sudo chmod -R 777 /var/opt/angolacars
 #sudo chmod 777 /var/opt/angolacars
 #sudo chmod g+s /var/opt/angolacars
 
-sudo chmod -R 775 /var/opt/angolacars/logs
+sudo chown -R :angolacars /var/opt/angolacars/logs
+sudo chmod -R 777 /var/opt/angolacars/logs
 
