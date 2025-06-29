@@ -10,6 +10,7 @@ while true; do
     echo "1) Registar Cliente interessado"
     echo "2) Apresentar carros disponíveis"
     echo "3) Procurar comprovativos de venda"
+    echo "4) Mostrar clientes interessados"
     echo "0) Voltar"
     read -p "Escolha: " opcao
 
@@ -17,6 +18,7 @@ while true; do
         1) bash $BASE_DIR/registar_cliente_interessado.sh ;;
         2) bash $BASE_DIR/apresentar_carros_disponiveis.sh ;;
         3) bash $BASE_DIR/procurar_comprovativo_de_venda.sh ;;
+        4) bash $BASE_DIR/../compartilhado/mostrar_clientes_interessados.sh ;;
         0) exit ;;
         *) echo "Opção inválida." ;;
     esac
