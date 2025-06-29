@@ -15,8 +15,8 @@ while true; do
 
     case "$opcao" in
         1) bash $BASE_DIR/registar_venda.sh ;;
-        2) bash gerar_relatorio_venda.sh ;;
-        3) bash ver_carros_vendidos.sh ;;
+        2) bash $BASE_DIR/gerar_relatorio_vendas.sh ;;
+        3) bash $BASE_DIR/ver_carros_vendidos.sh ;;
         0) exit ;;
         *) echo "Opção inválida." ;;
     esac

@@ -1,0 +1,21 @@
+#!/bin/bash
+
+INTERESSADOS="/var/opt/angolacars/recepcao/interessados.csv"
+mkdir -p "$(dirname "$INTERESSADOS")"
+
+read -p "Nome do cliente: " nome
+read -p "Telefone: " telefone
+read -p "Interesse (marca/modelo): " interesse
+
+if [[ -z "$nome" || -z "$telefone" || -z "$interesse" ]]; then
+  echo "❌ Nenhum campo pode ficar vazio."
+  read -n 1 -s -r -p "Pressione qualquer tecla para continuar..."
+  echo
+  exit 1
+fi
+
+echo "$nome;$telefone;$interesse;$(date)" >> "$INTERESSADOS"
+echo "✅ Cliente interessado registado com sucesso."
+
+read -n 1 -s -r -p "Pressione qualquer tecla para continuar..."
+echo
