@@ -2,9 +2,15 @@
 
 ARQUIVO="/var/opt/angolacars/dados/carros.txt"
 DIR=$(dirname "$ARQUIVO")
+LOG_GERAL="/var/opt/angolacars/logs/sistema.log"
 
 # Garante que o diretório existe
 mkdir -p "$DIR"
+
+logar() {
+  echo "$(date +%F_%H-%M-%S) - $1" >> "$LOG_GERAL"
+}
+
 
 # ===== Validações com pausa =====
 
@@ -52,6 +58,7 @@ fi
 
 # Salva no arquivo
 echo "$id;$marca;$modelo;$ano;$preco;$estado" >> "$ARQUIVO"
+logar "Carro cadastrado: ID $id | $marca $modelo $ano | $preco Kz"
 echo -e "\n✅ Carro cadastrado com sucesso! ID: $id"
 
 # Espera tecla para sair

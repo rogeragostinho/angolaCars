@@ -1,5 +1,10 @@
 #!/bin/bash
 
+LOG_GERAL="/var/opt/angolacars/logs/sistema.log"
+logar() {
+  echo "$(date +%F_%H-%M-%S) - $1" >> "$LOG_GERAL"
+}
+
 echo "=== CRIAR USUÁRIO ==="
 read -p "Nome do novo usuário: " username
 
@@ -23,6 +28,7 @@ sudo adduser "$username"
 sudo usermod -aG angolacars,"$grupo" "$username"
 if [ $? -eq 0 ]; then
   echo "✅ Usuário '$username' criado no grupo '$grupo'."
+  logar "Usuario criado: $username | grupo: $grupo"
 else
   echo "Erro ao criar novo usuário"
 fi

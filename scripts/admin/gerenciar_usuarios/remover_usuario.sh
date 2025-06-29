@@ -1,5 +1,10 @@
 #!/bin/bash
 
+LOG_GERAL="/var/opt/angolacars/logs/sistema.log"
+logar() {
+  echo "$(date +%F_%H-%M-%S) - $1" >> "$LOG_GERAL"
+}
+
 echo "=== REMOVER USUÁRIO ==="
 read -p "Nome do usuário a remover: " usuario
 
@@ -22,6 +27,7 @@ if [[ "$confirma" =~ ^[sS]$ ]]; then
   done
 
   echo "✅ Usuário '$usuario' removido com sucesso."
+  logar "Usuário removido: $usuario"
   read -n 1 -s -r -p "Pressione qualquer tecla para continuar..."
 else
   echo "❌ Cancelado."

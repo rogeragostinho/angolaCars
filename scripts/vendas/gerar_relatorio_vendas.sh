@@ -1,6 +1,9 @@
 #!/bin/bash
 
 HIST="/var/opt/angolacars/vendas/historico.csv"
+logar() {
+  echo "$(date +%F_%H-%M-%S) - $1" >> "$LOG_GERAL"
+}
 
 # Verifica se há histórico
 if [ ! -s "$HIST" ]; then

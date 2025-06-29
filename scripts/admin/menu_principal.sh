@@ -16,7 +16,7 @@ while true; do
   case "$opcao" in
     1) $BASE_DIR/gerenciar_usuarios/index.sh ;;
     2) $BASE_DIR/gerenciar_automoveis/index.sh ;;
-    3) criar_vendas ;;
+    3) $BASE_DIR/ver_logs.sh ;;
     0) exit ;;
     *) echo "Opção inválida." ;;
   esac

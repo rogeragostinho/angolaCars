@@ -1,5 +1,10 @@
 #!/bin/bash
 
+LOG_GERAL="/var/opt/angolacars/logs/sistema.log"
+logar() {
+  echo "$(date +%F_%H-%M-%S) - $1" >> "$LOG_GERAL"
+}
+
 echo "=== EDITAR USUÁRIO ==="
 read -p "Nome do usuário: " usuario
 

@@ -1,6 +1,10 @@
 #!/bin/bash
 
 ARQUIVO="/var/opt/angolacars/dados/carros.txt"
+LOG_GERAL="/var/opt/angolacars/logs/sistema.log"
+logar() {
+  echo "$(date +%F_%H-%M-%S) - $1" >> "$LOG_GERAL"
+}
 
 read -p "ID do carro a editar: " id
 
@@ -29,7 +33,7 @@ nova_linha="$id;$nova_marca;$novo_modelo;$novo_ano;$novo_preco;$estado"
 
 # Atualiza o arquivo substituindo a linha inteira do ID
 sed -i "s|^$id;.*|$nova_linha|" "$ARQUIVO"
-
+logar "Carro editado: ID $id | $nova_linha"
 echo -e "\n✅ Carro atualizado com sucesso."
 
 read -n 1 -s -r -p "Pressione qualquer tecla para continuar..."
