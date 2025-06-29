@@ -16,7 +16,7 @@ sudo chown -R :angolacars $BASE_DIR/../compartilhado
 sudo chmod -R 770 $BASE_DIR/../compartilhado
 
 sudo chown -R :angolacars /var/opt/angolacars
-#sudo chmod -R 777 /var/opt/angolacars
+sudo chmod -R 770 /var/opt/angolacars
 #sudo chmod o+rx /var /var/opt /var/opt/angolacars /var/opt/angolacars/dados
 #sudo chmod 777 /var/opt/angolacars
 #sudo chmod g+s /var/opt/angolacars
