@@ -23,3 +23,5 @@ for grupo in "${grupos[@]}"; do
     echo "$membros" | tr ',' '\n' | sed 's/^/  - /'
   fi
 done
+
+read -n 1 -s -r -p "Pressione qualquer tecla para continuar..."
