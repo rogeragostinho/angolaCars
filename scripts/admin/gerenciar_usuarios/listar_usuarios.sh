@@ -2,13 +2,24 @@
 
 echo "=== LISTAR USUÁRIOS DO ANGOLACARS ==="
 
-for grupo in angolacars_admin angolacars_recepcao angolacars_vendas; do
-  echo "- Grupo: ${grupo#angolacars_} →"
-  membros=$(getent group "$grupo" | cut -d: -f4)
+# Lista os grupos corretos
+grupos=("angolacars_admin" "angolacars_recepcao" "angolacars_vendas")
+
+for grupo in "${grupos[@]}"; do
+  echo "- Grupo: ${grupo#angolacars_}"
+
+  entrada=$(getent group "$grupo")
+
+  if [ -z "$entrada" ]; then
+    echo "  ⚠️  Grupo '$grupo' não encontrado."
+    continue
+  fi
+
+  membros=$(echo "$entrada" | cut -d: -f4)
 
   if [ -z "$membros" ]; then
-    echo "  (Nenhum usuário no grupo)"
+    echo "  (Sem usuários no grupo)"
   else
-    echo "  $membros" | tr ',' '\n' | sed 's/^/  - /'
+    echo "$membros" | tr ',' '\n' | sed 's/^/  - /'
   fi
 done
