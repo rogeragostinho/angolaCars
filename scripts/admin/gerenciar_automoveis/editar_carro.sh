@@ -3,7 +3,10 @@ ARQUIVO="/var/opt/angolacars/dados/carros.txt"
 
 read -p "ID do carro a editar: " id
 linha=$(grep "^$id;" "$ARQUIVO")
-[ -z "$linha" ] && echo "❌ ID não encontrado." && exit 1
+[ -z "$linha" ] && echo "❌ ID não encontrado." && (
+    read -n 1 -s -r -p "Pressione qualquer tecla para continuar..."
+    exit 1
+)
 
 IFS=';' read -r _id marca modelo ano preco estado <<< "$linha"
 
@@ -21,3 +24,5 @@ nova_linha="$id;$nova_marca;$novo_modelo;$novo_ano;$novo_preco;$estado"
 sed -i "s|^$id;.*|$nova_linha|" "$ARQUIVO"
 
 echo "✅ Carro atualizado com sucesso."
+
+read -n 1 -s -r -p "Pressione qualquer tecla para continuar..."
