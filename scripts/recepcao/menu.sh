@@ -14,9 +14,9 @@ while true; do
     read -p "Escolha: " opcao
 
     case "$opcao" in
-        1) bash registar_cliente.sh ;;
-        2) bash apresentar_carros_disponiveis.sh ;;
-        3) bash procurar_comprovativo_venda.sh ;;
+        1) bash $BASE_DIR/registar_cliente_interessado.sh ;;
+        2) bash $BASE_DIR/apresentar_carros_disponiveis.sh ;;
+        3) bash $BASE_DIR/procurar_comprovativo_de_venda.sh ;;
         0) exit ;;
         *) echo "Opção inválida." ;;
     esac
