@@ -11,10 +11,10 @@ while true; do
   echo "2) Gerenciar automóveis"
   echo "3) Ver logs do sistema"
   echo "0) Voltar"
-  read -p "Escolha o grupo (1-3): " opcao
+  read -p "Escolha uma opção: " opcao
 
   case "$opcao" in
-    1) criar_admin ;;
+    1) $BASE_DIR/gerenciar_usuarios.sh ;;
     2) $BASE_DIR/gerenciar_automoveis/index.sh ;;
     3) criar_vendas ;;
     0) exit ;;
