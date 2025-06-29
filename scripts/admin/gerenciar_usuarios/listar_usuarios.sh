@@ -1,9 +1,14 @@
 #!/bin/bash
 
-echo "=== LISTAR USUÁRIOS ==="
-echo "- Admin:"
-getent group angolacars_admin | cut -d: -f4 | tr ',' '\n'
-echo "- Recepção:"
-getent group angolacars_recepcao | cut -d: -f4 | tr ',' '\n'
-echo "- Vendas:"
-getent group angolacars_vendas | cut -d: -f4 | tr ',' '\n'
+echo "=== LISTAR USUÁRIOS DO ANGOLACARS ==="
+
+for grupo in angolacars_admin angolacars_recepcao angolacars_vendas; do
+  echo "- Grupo: ${grupo#angolacars_} →"
+  membros=$(getent group "$grupo" | cut -d: -f4)
+
+  if [ -z "$membros" ]; then
+    echo "  (Nenhum usuário no grupo)"
+  else
+    echo "  $membros" | tr ',' '\n' | sed 's/^/  - /'
+  fi
+done
