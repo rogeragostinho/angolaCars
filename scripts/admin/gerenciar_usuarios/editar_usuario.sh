@@ -30,7 +30,7 @@ case "$op" in
       3) grupo="angolacars_vendas" ;;
       *) echo "❌ Grupo inválido."; read -n 1 -s -r -p "Pressione qualquer tecla para continuar..."; exit 1 ;;
     esac
-    sudo usermod -G "$grupo" "$usuario"
+    sudo usermod -G angolacars,"$grupo" "$usuario"
     echo "✅ Grupo do usuário '$usuario' alterado para '$grupo'."
     ;;
   
