@@ -11,7 +11,13 @@ read -p "Carro: " carro
 read -p "Valor: " valor
 
 # alterar aqui
-[[ -z $cliente || -z $carro || -z $valor ]] && echo "Campos vazios!" && exit 1
+[[ -z $cliente || -z $carro || -z $valor ]] && (
+    echo "Campos vazios!" 
+    read -n 1 -s -r -p "Pressione qualquer tecla para continuar..."
+    exit 1
+)
 
 echo "$cliente;$carro;$valor;$(date)" >> "$HIST"
 echo "$(date +%F_%H-%M-%S) - Venda registada." | tee -a "$LOG"
+
+read -n 1 -s -r -p "Pressione qualquer tecla para continuar..."
