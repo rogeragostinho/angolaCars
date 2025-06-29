@@ -6,6 +6,7 @@ read -p "Nome do usuário: " usuario
 # Verifica se o usuário existe
 if ! id "$usuario" &>/dev/null; then
   echo "❌ Usuário '$usuario' não existe."
+  read -n 1 -s -r -p "Pressione qualquer tecla para continuar..."
   exit 1
 fi
 
@@ -27,7 +28,7 @@ case "$op" in
       1) grupo="angolacars_admin" ;;
       2) grupo="angolacars_recepcao" ;;
       3) grupo="angolacars_vendas" ;;
-      *) echo "❌ Grupo inválido."; exit 1 ;;
+      *) echo "❌ Grupo inválido."; read -n 1 -s -r -p "Pressione qualquer tecla para continuar..."; exit 1 ;;
     esac
     sudo usermod -G "$grupo" "$usuario"
     echo "✅ Grupo do usuário '$usuario' alterado para '$grupo'."
@@ -38,21 +39,25 @@ case "$op" in
     echo
     echo "$usuario:$senha" | sudo chpasswd
     echo "✅ Senha alterada com sucesso."
+    read -n 1 -s -r -p "Pressione qualquer tecla para continuar..."
     ;;
 
   3)
     read -p "Novo nome de usuário: " novo
     sudo usermod -l "$novo" "$usuario"
     echo "✅ Nome de usuário alterado para '$novo'."
+    read -n 1 -s -r -p "Pressione qualquer tecla para continuar..."
     ;;
   
   4)
     read -p "Novo diretório home (ex: /home/$usuario): " novohome
     sudo usermod -d "$novohome" -m "$usuario"
     echo "✅ Diretório home alterado para '$novohome'."
+    read -n 1 -s -r -p "Pressione qualquer tecla para continuar..."
     ;;
 
   *)
     echo "❌ Opção inválida."
+    read -n 1 -s -r -p "Pressione qualquer tecla para continuar..."
     ;;
 esac

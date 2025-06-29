@@ -1,5 +1,7 @@
 #!/bin/bash
 
+clear
+
 echo "=== LISTAR USUÁRIOS DO ANGOLACARS ==="
 
 # Lista os grupos corretos
