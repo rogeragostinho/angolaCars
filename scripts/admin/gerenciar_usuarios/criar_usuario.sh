@@ -13,9 +13,13 @@ case "$tipo" in
   1) grupo="admin" ;;
   2) grupo="recepcao" ;;
   3) grupo="vendas" ;;
-  *) echo "❌ Tipo inválido."; exit 1 ;;
+  *) 
+    echo "❌ Tipo inválido."
+    read -n 1 -s -r -p "Pressione qualquer tecla para continuar..."
+    exit 1 ;;
 esac
 
 sudo adduser "$username"
 sudo usermod -aG "$grupo" "$username"
 echo "✅ Usuário '$username' criado no grupo '$grupo'."
+read -n 1 -s -r -p "Pressione qualquer tecla para continuar..."
