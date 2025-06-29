@@ -4,16 +4,23 @@ CARROS="/var/opt/angolacars/dados/carros.txt"
 HIST="/var/opt/angolacars/vendas/historico.csv"
 LOG="/var/opt/angolacars/vendas/logs/vendas.log"
 
-# Mostra carros disponíveis
-echo "📋 Carros disponíveis para venda:"
-awk -F';' '$6 == "Disponível" { print "ID:", $1, "- Marca:", $2, "- Modelo:", $3, "- Preço:", $5 " Kz" }' "$CARROS"
+# Verifica se há carros disponíveis para venda
+if ! grep -q ";Disponível" "$CARROS" 2>/dev/null; then
+  echo "❌ Nenhum carro disponível para venda."
+  read -n 1 -s -r -p "Pressione qualquer tecla para continuar..."
+  echo
+  exit 1
+fi
 
+# Mostra lista de carros disponíveis
+echo "📋 Carros disponíveis:"
+awk -F';' '$6 == "Disponível" { printf "ID: %s | %s %s | Ano: %s | Preço: %s Kz\n", $1, $2, $3, $4, $5 }' "$CARROS"
 echo
+
 read -p "ID do carro a vender: " id
 
-# Pega linha do carro
+# Busca o carro pelo ID
 linha=$(grep "^$id;" "$CARROS")
-
 if [ -z "$linha" ]; then
   echo "❌ Carro não encontrado."
   read -n 1 -s -r -p "Pressione qualquer tecla para continuar..."
@@ -21,7 +28,7 @@ if [ -z "$linha" ]; then
   exit 1
 fi
 
-# Verifica se já foi vendido
+# Verifica se o carro está disponível
 estado=$(echo "$linha" | cut -d';' -f6)
 if [ "$estado" != "Disponível" ]; then
   echo "❌ Esse carro já foi vendido."
@@ -30,19 +37,25 @@ if [ "$estado" != "Disponível" ]; then
   exit 1
 fi
 
+# Solicita nome do cliente
 read -p "Nome do cliente: " cliente
-[ -z "$cliente" ] && echo "❌ Cliente não pode ser vazio." && read -n 1 -s -r -p "Pressione qualquer tecla para continuar..." && echo && exit 1
+if [ -z "$cliente" ]; then
+  echo "❌ Cliente não pode ficar vazio."
+  read -n 1 -s -r -p "Pressione qualquer tecla para continuar..."
+  echo
+  exit 1
+fi
 
 # Extrai dados do carro
 IFS=';' read -r cid marca modelo ano preco estado <<< "$linha"
 
-# Atualiza estado para 'Vendido'
+# Atualiza estado para Vendido
 nova_linha="$cid;$marca;$modelo;$ano;$preco;Vendido"
 sed -i "s|^$cid;.*|$nova_linha|" "$CARROS"
 
-# Registra venda
+# Registra venda no histórico e log
 echo "$cliente;$marca $modelo;$preco;$(date)" >> "$HIST"
-echo "$(date +%F_%H-%M-%S) - Venda realizada: ID $cid para $cliente." | tee -a "$LOG"
+echo "$(date +%F_%H-%M-%S) - Venda realizada: ID $cid | Cliente: $cliente | Carro: $marca $modelo" | tee -a "$LOG"
 
 echo -e "\n✅ Venda concluída com sucesso!"
 
