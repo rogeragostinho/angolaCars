@@ -2,14 +2,29 @@
 
 echo "=== REMOVER USUÁRIO ==="
 read -p "Nome do usuário a remover: " usuario
-read -p "Tens certeza? (s/N): " confirma
 
+# Verifica se o usuário existe
+if ! id "$usuario" &>/dev/null; then
+  echo "❌ Usuário '$usuario' não existe."
+  read -n 1 -s -r -p "Pressione qualquer tecla para continuar..."
+  exit 1
+fi
+
+# Confirmação
+read -p "Tem certeza que deseja remover '$usuario'? (s/N): " confirma
 if [[ "$confirma" =~ ^[sS]$ ]]; then
-  sudo deluser "$usuario"
-  sudo rm -rf /home/"$usuario"
-  echo "🗑️ Usuário '$usuario' removido com sucesso."
+  # Remove o usuário e o diretório home
+  sudo deluser --remove-home "$usuario"
+
+  # Remove o usuário dos grupos angolacars (caso esteja)
+  for grupo in angolacars_admin angolacars_recepcao angolacars_vendas; do
+    sudo gpasswd -d "$usuario" "$grupo" &>/dev/null
+  done
+
+  echo "✅ Usuário '$usuario' removido com sucesso."
   read -n 1 -s -r -p "Pressione qualquer tecla para continuar..."
 else
   echo "❌ Cancelado."
   read -n 1 -s -r -p "Pressione qualquer tecla para continuar..."
 fi
+
