@@ -14,7 +14,7 @@ while true; do
   read -p "Escolha uma opção: " opcao
 
   case "$opcao" in
-    1) $BASE_DIR/gerenciar_usuarios.sh ;;
+    1) $BASE_DIR/gerenciar_usuarios/index.sh ;;
     2) $BASE_DIR/gerenciar_automoveis/index.sh ;;
     3) criar_vendas ;;
     0) exit ;;
