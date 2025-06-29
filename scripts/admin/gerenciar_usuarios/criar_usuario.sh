@@ -10,9 +10,9 @@ echo "3) Vendas"
 read -p "Escolha: " tipo
 
 case "$tipo" in
-  1) grupo="admin" ;;
-  2) grupo="recepcao" ;;
-  3) grupo="vendas" ;;
+  1) grupo="angolacars_admin" ;;
+  2) grupo="angolacars_recepcao" ;;
+  3) grupo="angolacars_vendas" ;;
   *) 
     echo "❌ Tipo inválido."
     read -n 1 -s -r -p "Pressione qualquer tecla para continuar..."
@@ -20,6 +20,6 @@ case "$tipo" in
 esac
 
 sudo adduser "$username"
-sudo usermod -aG "$grupo" "$username"
+sudo usermod -aG angolacars,"$grupo" "$username"
 echo "✅ Usuário '$username' criado no grupo '$grupo'."
 read -n 1 -s -r -p "Pressione qualquer tecla para continuar..."
