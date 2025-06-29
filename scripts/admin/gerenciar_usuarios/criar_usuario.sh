@@ -21,5 +21,9 @@ esac
 
 sudo adduser "$username"
 sudo usermod -aG angolacars,"$grupo" "$username"
-echo "✅ Usuário '$username' criado no grupo '$grupo'."
+if [ $? -eq 0 ]; then
+  echo "✅ Usuário '$username' criado no grupo '$grupo'."
+else
+  echo "Erro ao criar novo usuário"
+fi
 read -n 1 -s -r -p "Pressione qualquer tecla para continuar..."
