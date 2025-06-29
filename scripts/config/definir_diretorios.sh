@@ -11,3 +11,4 @@ sudo mkdir -p /var/opt/angolacars/logs
 #sudo touch /var/opt/angolacars/vendas/vendas.log
 sudo touch /var/opt/angolacars/dados/carros.txt
 sudo touch /var/opt/angolacars/vendas/logs/vendas.log
+sudo touch /var/opt/angolacars/logs/sistema.log
