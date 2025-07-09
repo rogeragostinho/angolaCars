@@ -1,5 +1,7 @@
 #!/bin/bash
 
+clear
+
 echo ""
 echo "********** Projeto de Sistemas Operativos I - AngolaCars **********"
 echo "          Universidade: Universidade Católica de Angola"
