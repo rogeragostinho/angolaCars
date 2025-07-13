@@ -16,5 +16,6 @@ echo "------------------------------------------------------------"
 
 awk -F';' '{ printf "%-20s | %-15s | %-25s | %-20s\n", $1, $2, $3, $4 }' "$INTERESSADOS"
 
+echo
 read -n 1 -s -r -p "Pressione qualquer tecla para continuar..."
 echo
