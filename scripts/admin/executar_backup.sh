@@ -1,6 +1,6 @@
 #!/bin/bash
 
-ORIGEM="/angolacars"
+ORIGEM="/var/opt/angolacars"
 DESTINO="/angolacars/backup"
 DATA=$(date +%F_%H-%M-%S)
 ARQUIVO="angolacars_backup_$DATA.tar.gz"
