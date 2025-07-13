@@ -7,4 +7,4 @@ bash $BASE_DIR/criar_grupos_usuarios.sh
 bash $BASE_DIR/adicionar_usuarios_padrao.sh
 bash $BASE_DIR/definir_permissoes.sh
 bash $BASE_DIR/definir_diretorios.sh
-bach $BASE_DIR/criar_montar_particao_backup.sh
+bash $BASE_DIR/criar_montar_particao_backup.sh
