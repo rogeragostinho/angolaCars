@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# Dá permissão de execução a todos os scripts
+find /opt/angolaCars -type f -name "*.sh" -exec chmod +x {} \;
+
 #define o diretorio do prórpio script
 BASE_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
