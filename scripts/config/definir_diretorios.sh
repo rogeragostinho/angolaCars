@@ -7,5 +7,5 @@ sudo mkdir -p /var/opt/angolacars/dados
 
 sudo touch /var/opt/angolacars/logs/sistema.log
 sudo touch /var/opt/angolacars/vendas/historico.csv
-sudo touch /var/opt/angolacars/recepcao/clientes_interessados.csv
+sudo touch /var/opt/angolacars/recepcao/interessados.csv
 sudo touch /var/opt/angolacars/dados/carros.txt

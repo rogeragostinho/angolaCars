@@ -22,5 +22,6 @@ echo "$nome;$telefone;$interesse;$(date)" >> "$INTERESSADOS"
 logar "Cliente interessado registrado: $nome ($telefone) | Interesse: $interesse"
 echo "✅ Cliente interessado registado com sucesso."
 
+echo
 read -n 1 -s -r -p "Pressione qualquer tecla para continuar..."
 echo

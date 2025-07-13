@@ -40,3 +40,7 @@ done < "$ARQUIVO"
 
 mv "$TEMP" "$ARQUIVO"
 echo "✅ Limpeza de teste concluída!" >> "$LOG"
+
+echo
+read -n 1 -s -r -p "Pressione qualquer tecla para continuar..."
+echo
