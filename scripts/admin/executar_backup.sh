@@ -26,3 +26,7 @@ else
   echo "❌ Erro ao criar backup!"
   logar "Erro ao criar $ARQUIVO"
 fi
+
+echo
+read -n 1 -s -r -p "Pressione qualquer tecla para continuar..."
+echo
