@@ -24,3 +24,7 @@ sudo chmod -R 777 /var/opt/angolacars
 sudo chown -R :angolacars /var/opt/angolacars/logs
 sudo chmod -R 777 /var/opt/angolacars/logs
 
+#chmod +x /angolacars/scripts/montar_backup_particao.sh
+#chmod +x /angolacars/scripts/executar_backup.sh
+
+
