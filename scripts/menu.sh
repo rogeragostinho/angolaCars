@@ -5,6 +5,21 @@ BASE_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
 bash $BASE_DIR/apresentacao.sh
 
+usuario=$(whoami)
+grupos=$(groups "$usuario")
+
+if [[ "$grupos" == *"angolacars_admin"* ]]; then
+  tipo="admin"
+elif [[ "$grupos" == *"angolacars_recepcao"* ]]; then
+  tipo="recepção"
+elif [[ "$grupos" == *"angolacars_vendas"* ]]; then
+  tipo="vendas"
+else
+  tipo="desconhecido"
+fi
+
+echo "🔐 Logado como: $usuario - $tipo"
+
 # Define permissões do usuário
 IS_ADMIN=$(groups $USER | grep -q '\badmin\b' && echo "1" || echo "0")
 IS_RECEPCAO=$(groups $USER | grep -q '\brecepcao\b' && echo "1" || echo "0")
