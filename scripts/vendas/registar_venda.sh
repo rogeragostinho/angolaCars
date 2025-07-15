@@ -2,7 +2,7 @@
 
 CARROS="/var/opt/angolacars/dados/carros.txt"
 HIST="/var/opt/angolacars/vendas/historico.csv"
-LOG="/var/opt/angolacars/vendas/logs/vendas.log"
+LOG="/var/opt/angolacars/logs/sistema.log"
 LOG_GERAL="/var/opt/angolacars/logs/sistema.log"
 logar() {
   echo "$(date +%F_%H-%M-%S) - $1" >> "$LOG_GERAL"
@@ -60,8 +60,9 @@ sed -i "s|^$cid;.*|$nova_linha|" "$CARROS"
 
 # Registra venda no histórico e log
 echo "$cliente;$marca $modelo;$preco;$(date)" >> "$HIST"
-echo "$(date +%F_%H-%M-%S) - Venda realizada: ID $cid | Cliente: $cliente | Carro: $marca $modelo" | tee -a "$LOG"
-logar "Venda realizada: ID $cid para $cliente | $marca $modelo | $preco Kz"
+#echo "$(date +%F_%H-%M-%S) - Venda realizada: ID $cid | Cliente: $cliente | Carro: $marca $modelo" | tee -a "$LOG_GERAL"
+#logar "Venda realizada: ID $cid para $cliente | $marca $modelo | $preco Kz"
+logar "$(date +%F_%H-%M-%S) - Venda realizada: ID $cid | Cliente: $cliente | Carro: $marca $modelo"
 
 echo -e "\n✅ Venda concluída com sucesso!"
 
