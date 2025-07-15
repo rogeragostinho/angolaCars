@@ -12,7 +12,7 @@ while true; do
     echo "2) Listar carros"
     echo "3) Editar carro"
     echo "4) Eliminar carro"
-    echo "0) Sair"
+    echo "0) Voltar"
     echo "=============================="
     read -p "Escolha uma opção: " op
 

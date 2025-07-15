@@ -21,7 +21,7 @@ echo "=============================="
 echo "1. Ver todos os logs"
 echo "2. Filtrar por data (AAAA-MM-DD)"
 echo "3. Buscar palavra-chave"
-echo "4. Sair"
+echo "4. Voltar"
 echo "=============================="
 read -p "Escolha uma opção [1-4]: " opcao
 

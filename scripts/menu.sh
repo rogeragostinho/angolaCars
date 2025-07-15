@@ -18,8 +18,6 @@ else
   tipo="desconhecido"
 fi
 
-echo "🔐 Logado como: $usuario - $tipo"
-
 # Define permissões do usuário
 IS_ADMIN=$(groups $USER | grep -q '\badmin\b' && echo "1" || echo "0")
 IS_RECEPCAO=$(groups $USER | grep -q '\brecepcao\b' && echo "1" || echo "0")
@@ -27,6 +25,8 @@ IS_VENDAS=$(groups $USER | grep -q '\bvendas\b' && echo "1" || echo "0")
 
 while true; do
   clear
+
+  echo "🔐 Logado como: $usuario - $tipo"
 
   echo ""
   echo "===== MENU ANGOLACARS ====="
@@ -38,9 +38,21 @@ while true; do
   read -p "Escolha uma opção: " opcao
 
     case "$opcao" in
-        1) bash $BASE_DIR/admin/index.sh ;;
-        2) bash $BASE_DIR/recepcao/index.sh ;;
-        3) bash $BASE_DIR/vendas/index.sh ;;
+        1) bash $BASE_DIR/admin/index.sh
+            echo ""
+            read -n 1 -s -r -p "Pressione qualquer tecla para continuar..."
+            echo ""
+           ;;
+        2) bash $BASE_DIR/recepcao/index.sh
+            echo ""
+            read -n 1 -s -r -p "Pressione qualquer tecla para continuar..."
+            echo ""
+           ;;
+        3) bash $BASE_DIR/vendas/index.sh
+            echo ""
+            read -n 1 -s -r -p "Pressione qualquer tecla para continuar..."
+            echo ""
+           ;;
         0) exit ;;
         *) 
           echo "Opção inválida." 
