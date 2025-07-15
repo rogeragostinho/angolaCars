@@ -11,8 +11,8 @@ while true; do
   echo "2) Gerenciar automóveis"
   echo "3) Ver logs do sistema"
   echo "4) Fazer backup"
-  #echo "5) Limpar clientes interessados (6+ meses)"
-  echo "5) Limpar clientes interessados (1+ min)"
+  echo "5) Limpar clientes interessados (6+ meses)"
+  #echo "5) Limpar clientes interessados (1+ min)"
   echo "0) Voltar"
   read -p "Escolha uma opção: " opcao
 
